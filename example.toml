@@ -1,0 +1,19 @@
+[signal]
+frequency = 2.4e9
+power = -50 #dBm
+
+[[component]]
+id = "lna_1"
+name = "LNA T-1000"
+type = "lna"
+gain = 20
+
+[[component]]
+id = "lna_2"
+name = "LNA 3310"
+type = "lna"
+gain = 10
+input = "lna_1"
+
+[output]
+observe = ["lna_second_stage"]
