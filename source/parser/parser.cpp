@@ -3,6 +3,7 @@
 #include "simulation/simulation_model.h"
 
 #include <iostream>
+#include <memory>
 
 namespace parser
 {
@@ -26,11 +27,21 @@ simulation::SimulationModel parse(const std::string_view path)
 	for (auto& element : components)
 	{
 		const auto& component{*element.as_table()};
-		std::string id = component["id"].value<std::string>().value();
-		std::string type = component["type"].value<std::string>().value();
-		std::string name = component["name"].value_or("");
 
-		simModel.addComponent(components::createComponent(table));
+		simModel.addComponent(components::createComponent(component));
+	}
+
+	auto& signals{*table["signal"].as_array()};
+
+	for (auto & element : signals)
+	{
+		const auto& signalTable{*element.as_table()};
+
+		std::string id{signalTable["id"].value<std::string>().value()};
+		double frequency{signalTable["frequency"].value<double>().value()};
+		double power{signalTable["power"].value<double>().value()};
+
+		simModel.addSignal(std::make_unique<rf::Signal>(id, frequency, power));
 	}
 	
 	return simModel;

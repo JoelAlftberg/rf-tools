@@ -16,11 +16,22 @@ namespace components
 namespace{
 ComponentBase readBase(const toml::table& table)
 {
+	std::vector<std::string> inputs;
+
+	if (nullptr != table["inputs"].as_array() )
+	{
+		for (auto& input : *table["inputs"].as_array())
+		{
+			inputs.push_back(input.value<std::string>().value());
+		}
+	}
+
 	return 
 	{
 		table["id"].value<std::string>().value(),
 		table["type"].value<std::string>().value(),
-		table["name"].value_or("")
+		table["name"].value_or(""),
+		inputs,
 	};
 }
 }

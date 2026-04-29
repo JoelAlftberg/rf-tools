@@ -1,19 +1,21 @@
-[signal]
+[[signal]]
+id = "signal_1"
 frequency = 2.4e9
-power = -50 #dBm
+power = -50.0 #dBm
 
 [[component]]
 id = "lna_1"
 name = "LNA T-1000"
 type = "lna"
 gain = 20
+inputs = ["signal_1"]
 
 [[component]]
 id = "lna_2"
 name = "LNA 3310"
 type = "lna"
 gain = 10
-input = "lna_1"
+inputs = ["lna_1"]
 
 [output]
-observe = ["lna_second_stage"]
+observe = ["lna_2"]

@@ -18,13 +18,19 @@ public:
 		: id_{base.id}
 		, type_{base.type}
 		, name_{base.name}
+		, inputs_{base.inputs}
 	{}
 
 	virtual ~Component() = default;
 
 	virtual std::vector<rf::Signal> process(const std::vector<rf::Signal>& input) = 0;
 
-	std::string& name() const
+	const std::string& id()
+	{
+		return id_;
+	}
+
+	const std::string& name() 
 	{
 		return name_;
 	}
@@ -33,6 +39,7 @@ private:
 	std::string id_;
 	std::string type_;
 	std::string name_;
+	std::vector<std::string> inputs_;
 
 };
 
