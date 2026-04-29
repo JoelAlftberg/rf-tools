@@ -1,0 +1,26 @@
+freq_range = [ 50e6, 4e9]
+supply_voltage = 5.0 
+gain = [
+	{freq = 50e6, 	gain = 25.4},
+	{freq = 500e6, 	gain = 22.1},
+	{freq = 1e9, 	gain = 18.4},
+	{freq = 2e9, 	gain = 13.3},
+	{freq = 3e9, 	gain = 10.2},
+	{freq = 4e9, 	gain = 8.0},
+]
+noise_figure = [
+	{freq = 50e6, 	noise_figure = 0.73},
+	{freq = 500e6, 	noise_figure = 0.65},
+	{freq = 1e9, 	noise_figure = 0.75},
+	{freq = 2e9, 	noise_figure = 0.98},
+	{freq = 3e9, 	noise_figure = 1.1},
+	{freq = 4e9, 	noise_figure = 1.44},
+]
+oip3 = [
+	{freq = 50e6, 	oip3 = 31.0},
+	{freq = 500e6, 	oip3 = 32.1},
+	{freq = 1e9, 	oip3 = 33.5},
+	{freq = 2e9, 	oip3 = 32.7},
+	{freq = 3e9, 	oip3 = 33.6},
+	{freq = 4e9, 	oip3 = 32.6},
+]

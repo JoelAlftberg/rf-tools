@@ -1,21 +1,32 @@
 [[signal]]
 id = "signal_1"
-frequency = 2.4e9
+frequency = 2.4e9 #Hz
 power = -50.0 #dBm
 
 [[component]]
 id = "lna_1"
-name = "LNA T-1000"
+name = "First stage amplifier"
 type = "lna"
-gain = 20
+part = "psa4-5043plus"
 inputs = ["signal_1"]
 
 [[component]]
 id = "lna_2"
-name = "LNA 3310"
+name = "Second stage amp"
 type = "lna"
-gain = 10
+gain 			= 20.0 #dB
+noise_figure 	= 0.0
+oip3 			= 0.0
+
 inputs = ["lna_1"]
 
+[[component]]
+id = "lna_3"
+name = "Third stage amp"
+type = "lna"
+part = "psa4-5043plus"
+gain = 20.0 #dB
+inputs = ["lna_2"]
+
 [output]
-observe = ["lna_2"]
+observe = ["lna_1", "lna_2", "lna_3"]
