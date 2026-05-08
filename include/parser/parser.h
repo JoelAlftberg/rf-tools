@@ -8,15 +8,7 @@
 namespace parser
 {
 
-class Parser
-{
+simulation::SimulationModel parse(const std::string_view path);
+toml::table readPartFile(const std::string& partName, const std::string& componentType);
 
-public:
-
-	simulation::SimulationModel parse(const std::string_view path);
-
-private:
-	
-};
-	
 } // namespace parser

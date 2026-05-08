@@ -12,7 +12,7 @@ public:
 
 	Signal(std::string id, double frequency, double power)
 	: id_{id}
-	, frequency_{frequency_}
+	, frequency_{frequency}
 	, power_{power} 
 	{}
 
