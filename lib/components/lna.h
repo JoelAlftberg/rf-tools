@@ -7,7 +7,6 @@
 #include "rf_signal.h"
 
 #include <cassert>
-#include <string>
 #include <vector>
 
 namespace components

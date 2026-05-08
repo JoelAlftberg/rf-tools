@@ -35,6 +35,11 @@ public:
 		return name_;
 	}
 
+    const std::vector<std::string>& inputs() const
+    {
+        return inputs_;
+    }
+
 private:
 	std::string id_;
 	std::string type_;
